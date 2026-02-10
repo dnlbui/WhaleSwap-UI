@@ -88,16 +88,23 @@ body {
   border-radius: 12px;
   font-size: 12px;
   margin-right: 8px;
-  background-color: #666;
-  color: white;
+  background-color: transparent;
+  color: var(--text-primary);
 }
 
 .network-badge.connected {
-  background-color: #4caf50;
+  background-color: transparent;
+  color: #10b981;
 }
 
 .network-badge.wrong-network {
-  background-color: #f44336;
+  background-color: transparent;
+  color: #ef4444;
+}
+
+.network-badge.disconnected {
+  background-color: transparent;
+  color: #ffffff;
 }
 
 .hidden {
@@ -492,19 +499,26 @@ input {
 }
 
 .header-right .wallet-button {
-  padding: 8px 16px;
+  padding: 8px 12px;
+  min-width: 196px;
+  min-height: 42px;
   border-radius: 12px;
   background: #4b6bfb;
-  color: white;
-  border: none;
+  color: #ffffff;
+  border: 1px solid #4b6bfb;
   cursor: pointer;
   font-size: 14px;
-  font-weight: 500;
-  transition: background-color 0.2s;
+  font-weight: 600;
+  transition: background-color 150ms ease, border-color 150ms ease, transform 50ms ease;
 }
 
-.header-right .wallet-button:hover {
+.header-right .wallet-button:hover:not(:disabled) {
   background: #3a54d6;
+  border-color: #3a54d6;
+}
+
+.header-right .wallet-button:active:not(:disabled) {
+  transform: translateY(1px);
 }
 
 .info-icon {
